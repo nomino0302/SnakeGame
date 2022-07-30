@@ -128,7 +128,6 @@ def refresh(ban=None, level=None, snake=None, apple=None, tongue=False):
 def game(ban, level, snake, lenght=None, frame_quota=None, exit_output=None, test=False):
     global space_pause
     global escape_reset
-    print("in game")
 
     state = RUNNING
 
@@ -173,7 +172,6 @@ def game(ban, level, snake, lenght=None, frame_quota=None, exit_output=None, tes
     while True:
         clock.tick(fps)  # Limit the loop (while run) at 60 loops per second
         for event in pygame.event.get():
-            print(f"in game: {event}")
             if event.type == pygame.QUIT:  # --> Red cross
                 return FORCED_EXIT
 
@@ -278,7 +276,6 @@ def game(ban, level, snake, lenght=None, frame_quota=None, exit_output=None, tes
 
                     else:
                         refresh(ban, level, snake, tongue=True)
-                        print("GG!")
                         pygame.time.wait(3000)
                         return WIN
 
@@ -348,12 +345,10 @@ def main(test=False):
 
         while True:
             for event in pygame.event.get():
-                print(event)
                 if event.type == pygame.QUIT:  # --> Red cross
                     return
 
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 or space_pause or escape_reset:
-                    print("in mouse param")
                     pos = pygame.mouse.get_pos()
                     if space_pause or escape_reset:
                         pos = (0, 0)
@@ -389,7 +384,6 @@ def main(test=False):
                                     ban.user_text_lenght += event.unicode
                         refresh(ban)
                     else:
-                        print("ready to launch")
                         reset = False
                         lenght = int(ban.user_text_lenght)
                         frame_quota = secondToFrame(ban.speed, fps)
@@ -398,7 +392,6 @@ def main(test=False):
                         ban.pts = 0
                         ban.best = ban.get_best(lenght, ban.speed)
                         exit_output = game(ban, level, snake, lenght, frame_quota, exit_output, test)
-                        print(exit_output)
                         lenght = int(ban.user_text_lenght)
 
                         if exit_output == FORCED_EXIT:
@@ -425,8 +418,6 @@ def main(test=False):
                                 height_text += font_size + 10
                             pygame.display.update()
                             pygame.time.delay(400)
-
-                print("in nowhere")
 
 
 if __name__ == "__main__":
