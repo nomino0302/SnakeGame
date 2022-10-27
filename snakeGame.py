@@ -29,7 +29,6 @@ start_x, start_y = width_win - (width + width_border_right), height_win - (heigh
 icon = pygame.image.load("assets/img/icon/icon.png")
 font_size = 34
 font = pygame.font.Font("assets/font/Mario-Kart-DS.ttf", font_size)
-eating = pygame.mixer.Sound("assets/sound/eat.mp3")
 
 # Paramètres fenêtre
 pygame.display.set_caption("Snake")
@@ -263,9 +262,8 @@ def game(ban, level, snake, lenght=None, frame_quota=None, exit_output=None, tes
                         y < start_y or [x, y] in snake_body_pos:
                     return GAME_OVER  # Game Over
 
-                if [x, y] == apple.pos:
+                if [x, y] == apple.pos: # = Snake eated the apple
                     snake.grow()
-                    eating.play()
                     ban.pts += 1
 
                     snake_pos = snake.getSnakePos()
