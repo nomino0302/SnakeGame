@@ -5,7 +5,6 @@
 
 """SnakeGame🐍 : just a simple snake game made with pygame"""
 
-import asyncio
 import pygame
 import sys
 from Snake import Snake
@@ -298,7 +297,7 @@ def game(ban, level, snake, lenght=None, frame_quota=None, exit_output=None, tes
 
 
 # Main loop
-async def main(test=False):
+def main(test=False):
     global space_pause
     global escape_reset
 
@@ -420,9 +419,8 @@ async def main(test=False):
                             pygame.display.update()
                             pygame.time.delay(400)
 
-            await asyncio.sleep(0)
 
 if __name__ == "__main__":
-    asyncio.run(main(test=False))
+    main(test=False)
     pygame.quit()
     sys.exit()
