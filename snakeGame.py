@@ -7,6 +7,7 @@
 
 import pygame
 import sys
+from paths import resource_path
 from Snake import Snake
 from Banner import Banner
 from Level import Level
@@ -26,9 +27,9 @@ start_x, start_y = width_win - (width + width_border_right), height_win - (heigh
 # x = 35/ y = 50
 
 # Game assets
-icon = pygame.image.load("assets/img/icon/icon.png")
+icon = pygame.image.load(resource_path("assets/img/icon/icon.png"))
 font_size = 34
-font = pygame.font.Font("assets/font/Mario-Kart-DS.ttf", font_size)
+font = pygame.font.Font(resource_path("assets/font/Mario-Kart-DS.ttf"), font_size)
 
 # Paramètres fenêtre
 pygame.display.set_caption("Snake")
@@ -322,6 +323,7 @@ def main(test=False):
     last_lenght = str(lenght)
 
     level = Level(win, case, start_x, start_y, width, height, level=0)
+    menu_clock = pygame.time.Clock()
 
     if test:
         case_x, case_y = 4, 1
@@ -342,6 +344,7 @@ def main(test=False):
         pygame.display.update()
 
         while True:
+            menu_clock.tick(fps)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:  # --> Red cross
                     return

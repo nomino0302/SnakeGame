@@ -1,4 +1,5 @@
 import pygame
+from paths import resource_path
 
 # Some colors :
 # "black_snake": (0, 0, 0),
@@ -10,24 +11,24 @@ import pygame
 # "dark_green": (152, 203, 64),
 
 # Snake assets
-snake_hori = pygame.image.load("assets/img/snake/snake_hori.png")
-snake_verti = pygame.image.load("assets/img/snake/snake_verti.png")
-snake_head_up = pygame.image.load("assets/img/snake/snake_head_up.png")
-snake_head_left = pygame.image.load("assets/img/snake/snake_head_left.png")
-snake_head_right = pygame.image.load("assets/img/snake/snake_head_right.png")
-snake_head_down = pygame.image.load("assets/img/snake/snake_head_down.png")
-snake_head_up_tongue = pygame.image.load("assets/img/snake/snake_head_up_tongue.png")
-snake_head_left_tongue = pygame.image.load("assets/img/snake/snake_head_left_tongue.png")
-snake_head_right_tongue = pygame.image.load("assets/img/snake/snake_head_right_tongue.png")
-snake_head_down_tongue = pygame.image.load("assets/img/snake/snake_head_down_tongue.png")
-snake_right_down = pygame.image.load("assets/img/snake/snake_right_down.png")
-snake_right_up = pygame.image.load("assets/img/snake/snake_right_up.png")
-snake_left_down = pygame.image.load("assets/img/snake/snake_left_down.png")
-snake_left_up = pygame.image.load("assets/img/snake/snake_left_up.png")
-snake_tail_down = pygame.image.load("assets/img/snake/snake_tail_down.png")
-snake_tail_right = pygame.image.load("assets/img/snake/snake_tail_right.png")
-snake_tail_left = pygame.image.load("assets/img/snake/snake_tail_left.png")
-snake_tail_up = pygame.image.load("assets/img/snake/snake_tail_up.png")
+snake_hori = pygame.image.load(resource_path("assets/img/snake/snake_hori.png"))
+snake_verti = pygame.image.load(resource_path("assets/img/snake/snake_verti.png"))
+snake_head_up = pygame.image.load(resource_path("assets/img/snake/snake_head_up.png"))
+snake_head_left = pygame.image.load(resource_path("assets/img/snake/snake_head_left.png"))
+snake_head_right = pygame.image.load(resource_path("assets/img/snake/snake_head_right.png"))
+snake_head_down = pygame.image.load(resource_path("assets/img/snake/snake_head_down.png"))
+snake_head_up_tongue = pygame.image.load(resource_path("assets/img/snake/snake_head_up_tongue.png"))
+snake_head_left_tongue = pygame.image.load(resource_path("assets/img/snake/snake_head_left_tongue.png"))
+snake_head_right_tongue = pygame.image.load(resource_path("assets/img/snake/snake_head_right_tongue.png"))
+snake_head_down_tongue = pygame.image.load(resource_path("assets/img/snake/snake_head_down_tongue.png"))
+snake_right_down = pygame.image.load(resource_path("assets/img/snake/snake_right_down.png"))
+snake_right_up = pygame.image.load(resource_path("assets/img/snake/snake_right_up.png"))
+snake_left_down = pygame.image.load(resource_path("assets/img/snake/snake_left_down.png"))
+snake_left_up = pygame.image.load(resource_path("assets/img/snake/snake_left_up.png"))
+snake_tail_down = pygame.image.load(resource_path("assets/img/snake/snake_tail_down.png"))
+snake_tail_right = pygame.image.load(resource_path("assets/img/snake/snake_tail_right.png"))
+snake_tail_left = pygame.image.load(resource_path("assets/img/snake/snake_tail_left.png"))
+snake_tail_up = pygame.image.load(resource_path("assets/img/snake/snake_tail_up.png"))
 
 heads = [snake_head_right, snake_head_down, snake_head_left, snake_head_up]
 bodies = [snake_hori, snake_verti]

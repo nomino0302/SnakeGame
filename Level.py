@@ -1,4 +1,5 @@
 import pygame
+from paths import resource_path
 from random import choice
 
 colors = {
@@ -18,7 +19,7 @@ class Level:
         self.level_rect = pygame.Rect(start_x, start_y, width, height)
         self.border_style = border_style
         self.levels = [
-            pygame.image.load("assets/img/bg/bg.png"),
+            pygame.image.load(resource_path("assets/img/bg/bg.png")),
         ]
         self.file = self.get_level(level)
 

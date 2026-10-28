@@ -1,8 +1,9 @@
 import pygame
+from paths import resource_path
 from random import choice
 
 # Food assets
-apple = pygame.image.load("assets/img/food/apple.png")
+apple = pygame.image.load(resource_path("assets/img/food/apple.png"))
 
 
 class Apple:

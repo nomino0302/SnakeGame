@@ -1,7 +1,7 @@
 import pygame
 import json
-import os.path
 import copy
+from paths import resource_path, scores_path
 
 pygame.init()
 
@@ -17,26 +17,26 @@ stick_width, stick_height = 10, 36
 font_size = 34
 
 # Icons
-apple_ban = pygame.image.load("assets/img/ban/apple_ban.png")
-trophy_ban = pygame.image.load("assets/img/ban/trophy_ban.png")
+apple_ban = pygame.image.load(resource_path("assets/img/ban/apple_ban.png"))
+trophy_ban = pygame.image.load(resource_path("assets/img/ban/trophy_ban.png"))
 
 # Buttons
-play = pygame.image.load("assets/img/ban/play.png")
-pause = pygame.image.load("assets/img/ban/pause.png")
-reset = pygame.image.load("assets/img/ban/redo.png")
+play = pygame.image.load(resource_path("assets/img/ban/play.png"))
+pause = pygame.image.load(resource_path("assets/img/ban/pause.png"))
+reset = pygame.image.load(resource_path("assets/img/ban/redo.png"))
 
 # Sticks
-no_stick = pygame.image.load("assets/img/ban/no_stick.png")
-stick1 = pygame.image.load("assets/img/ban/stick1.png")
-stick2 = pygame.image.load("assets/img/ban/stick2.png")
-stick3 = pygame.image.load("assets/img/ban/stick3.png")
-stick4 = pygame.image.load("assets/img/ban/stick4.png")
-stick5 = pygame.image.load("assets/img/ban/stick5.png")
-stick6 = pygame.image.load("assets/img/ban/stick6.png")
+no_stick = pygame.image.load(resource_path("assets/img/ban/no_stick.png"))
+stick1 = pygame.image.load(resource_path("assets/img/ban/stick1.png"))
+stick2 = pygame.image.load(resource_path("assets/img/ban/stick2.png"))
+stick3 = pygame.image.load(resource_path("assets/img/ban/stick3.png"))
+stick4 = pygame.image.load(resource_path("assets/img/ban/stick4.png"))
+stick5 = pygame.image.load(resource_path("assets/img/ban/stick5.png"))
+stick6 = pygame.image.load(resource_path("assets/img/ban/stick6.png"))
 
 # Fonts
-font = pygame.font.Font("assets/font/Mario-Kart-DS.ttf", font_size)
-font_input = pygame.font.Font("assets/font/Crashnumberinggothic-MAjp.ttf", font_size)
+font = pygame.font.Font(resource_path("assets/font/Mario-Kart-DS.ttf"), font_size)
+font_input = pygame.font.Font(resource_path("assets/font/Crashnumberinggothic-MAjp.ttf"), font_size)
 
 space_icon = icon_size + 5
 space_input = input_size + 5
@@ -166,8 +166,9 @@ class Banner:
 
     @staticmethod
     def get_best_scores():
-        if os.path.exists("scores.json"):
-            with open("scores.json") as f:
+        score_file = scores_path()
+        if score_file.exists():
+            with score_file.open(encoding="utf-8") as f:
                 try:
                     json_file = json.load(f)
                 except json.JSONDecodeError:
@@ -200,7 +201,8 @@ class Banner:
         else:
             self.best_scores[(lenght, frame)] = self.pts
 
-        with open("scores.json", "w") as f:
+        score_file = scores_path()
+        with score_file.open("w", encoding="utf-8") as f:
             json_file = copy.deepcopy(self.best_scores)
             for param in list(json_file.keys()):
                 json_file[str(param)] = json_file.pop(param)
